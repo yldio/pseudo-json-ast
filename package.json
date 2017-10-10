@@ -1,6 +1,6 @@
 {
   "name": "pseudo-json-ast",
-  "version": "1.0.6",
+  "version": "1.0.10",
   "license": "MPL-2.0",
   "description": "Parse a JSON string into an object with location properties",
   "keywords": [
@@ -13,37 +13,47 @@
     "loc",
     "location"
   ],
-  "repository": "github:yldio/joyent-portal",
+  "repository": "github:yldio/pseudo-json-ast",
   "main": "dist/pseudo-json-ast.umd.js",
   "jsnext:main": "dist/pseudo-json-ast.es.js",
   "module": "dist/pseudo-json-ast.es.js",
   "entry": "src/index.js",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "lint": "eslint . --fix",
-    "test:run": "cross-env NODE_ENV=test nyc --reporter=lcov --reporter=text ava",
-    "test": "redrun -s build test:run",
-    "test-ci": "redrun -s build test-ci:run",
+    "fmt": "prettier --write --single-quote src/*.js",
+    "test": "bup && cross-env NODE_ENV=test nyc --reporter=lcov --reporter=text ava",
     "build": "bup",
     "prepublish": "bup"
   },
   "dependencies": {
-    "acorn": "^5.1.1",
+    "acorn": "^5.1.2",
     "has-own-prop": "^1.0.0",
     "lodash.isnull": "^3.0.0",
     "lodash.isundefined": "^3.0.1"
   },
   "devDependencies": {
     "ava": "^0.22.0",
-    "babel-plugin-istanbul": "^4.1.4",
+    "babel-eslint": "^8.0.1",
+    "babel-plugin-istanbul": "^4.1.5",
     "babel-preset-env": "^1.6.0",
     "babel-register": "^6.26.0",
-    "bup": "^1.0.9",
+    "bup": "^2.0.5",
     "cross-env": "^5.0.5",
-    "eslint": "^4.5.0",
-    "eslint-config-joyent-portal": "3.0.0",
-    "nyc": "^11.1.0",
-    "redrun": "^5.9.17",
+    "eslint": "^4.8.0",
+    "eslint-config-joyent-portal": "3.1.0",
+    "eslint-config-prettier": "^2.6.0",
+    "eslint-config-react-app": "^2.0.1",
+    "eslint-config-xo-space": "^0.16.0",
+    "eslint-plugin-flowtype": "^2.39.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-prettier": "^2.3.1",
+    "eslint-plugin-react": "^7.4.0",
+    "nyc": "^11.2.1",
+    "prettier": "^1.7.4",
     "tap-xunit": "^1.7.0"
   },
   "nyc": {
@@ -52,7 +62,9 @@
   },
   "ava": {
     "tap": true,
-    "require": ["babel-register"],
+    "require": [
+      "babel-register"
+    ],
     "babel": "inherit"
   }
 }
