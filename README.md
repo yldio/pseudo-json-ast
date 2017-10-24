@@ -12,9 +12,9 @@ Parse a JSON string into an object with location properties.
 
 ## Table of Contents
 
-- [Install](#install)
-- [Usage](#usage)
-- [License](#license)
+* [Install](#install)
+* [Usage](#usage)
+* [License](#license)
 
 ## Install
 
